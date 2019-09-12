@@ -92,6 +92,7 @@ void performOpenCLCalculation(const cl::Device &device,
   // Copy result from `outputC` to `c`
   queue.enqueueReadBuffer(outputC, CL_TRUE, 0, c.size() * sizeof(uint32_t),
                           c.data());
+  queue.finish();
 }
 
 int main() {
